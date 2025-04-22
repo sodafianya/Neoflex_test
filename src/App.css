@@ -1,0 +1,23 @@
+.app {
+  /* max-width: 1200px; */
+  margin: 0 auto;
+  /* padding: 20px; */
+  font-family: Arial, sans-serif;
+  background-color: #EAEAEA;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 32px;
+  color: #333;
+}
+
+.category-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}

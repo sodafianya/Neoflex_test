@@ -1,0 +1,52 @@
+.smartphone-list-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.smartphone-list-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.smartphone-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.smartphone-card {
+  flex: 1;
+  min-width: 250px;
+  max-width: 300px;
+  transition: transform 0.3s ease;
+}
+
+.smartphone-card:hover {
+  transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+  .smartphone-list {
+    gap: 15px;
+  }
+  
+  .smartphone-card {
+    min-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .smartphone-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .smartphone-card {
+    width: 100%;
+    max-width: 350px;
+  }
+}
