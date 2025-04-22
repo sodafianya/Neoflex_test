@@ -38,6 +38,8 @@ header {
   top: -5px;
   right: -5px;
   background: #FFA542;
+  background-color: #FFA542;
+  color: white;
   border-radius: 50%;
   width: 18px;
   height: 18px;
@@ -46,6 +48,7 @@ header {
   align-items: center;
   justify-content: center;
 }
+
 @media (max-width: 1200px) {
   .header-content {
     width: 90%;

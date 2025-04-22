@@ -1,18 +1,18 @@
 import React from 'react';
 import ProductCard from '../ProductCard/ProductCard';
-
 import './ProductGrid.css';
 
-const ProductGrid = ({ products, categoryTitle }) => {
+const ProductGrid = ({ products, categoryTitle, cartItems = [], onAddToCart = () => {} }) => {
   return (
-    <section className="product-grid-container">
-      <h2 className="product-grid-title">{categoryTitle}</h2>
+    <section className="product-section">
+      <h2 className="section-title">{categoryTitle}</h2>
       <div className="product-grid">
-        {products.map((product) => (
+        {products.map(product => (
           <ProductCard 
-            key={product.id}
-            product={product}
-            className="product-card"
+            key={product.id} 
+            product={product} 
+            cartItems={cartItems}
+            onAddToCart={onAddToCart}
           />
         ))}
       </div>

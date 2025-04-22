@@ -1,9 +1,30 @@
 import React from 'react';
-
 import placeholder from '../../assets/placeholder.jpg';
 import './ProductCard.css';
 
-function ProductCard({ product }) {
+function ProductCard({ product, cartItems = [], onAddToCart = () => {} }) {
+  if (!product) return null;
+  
+  const cartItem = Array.isArray(cartItems) 
+    ? cartItems.find(item => item?.id === product.id) 
+    : null;
+
+  const handleAddToCart = () => {
+    if (typeof onAddToCart === 'function') {
+      onAddToCart(product);
+    }
+  };
+
+  const handleIncrement = () => {
+    handleAddToCart();
+  };
+
+  const handleDecrement = () => {
+    if (cartItem && typeof onAddToCart === 'function') {
+      onAddToCart({ ...product, quantity: Math.max(0, cartItem.quantity - 1) });
+    }
+  };
+
   return (
     <div className="product-card">
       <img 
@@ -20,13 +41,21 @@ function ProductCard({ product }) {
           <div className="product-prices">
             <div className="current-price">{product.price} ₽</div>
             {product.oldPrice && (
-            <div className="old-price">{product.oldPrice} ₽</div>
+              <div className="old-price">{product.oldPrice} ₽</div>
             )}
           </div>
         </div>
         <div className="content-second">
-          <div className="product-rate"> {product.rate || '4.7'}</div>
-          <button className="buy-button">Купить</button>
+          <div className="product-rate">{product.rate || '4.7'}</div>
+          {cartItem ? (
+            <div className="quantity-control">
+              <button className="quantity-btn" onClick={handleDecrement}>-</button>
+              <span className="quantity">{cartItem.quantity}</span>
+              <button className="quantity-btn" onClick={handleIncrement}>+</button>
+            </div>
+          ) : (
+            <button className="buy-button" onClick={handleAddToCart}>Купить</button>
+          )}
         </div>
       </div>
     </div>

@@ -4,22 +4,20 @@
   --mobile-gap: 16px;
 }
 
-.product-grid-container {
+.product-section {
   width: 1110px;
   max-width: var(--max-width);
   margin: 0 auto;
-  /* padding: 132px 182px; */
   box-sizing: border-box;
 }
 .product-grid {
   display: grid;
   grid-template-columns: repeat(3, 350px);
   gap: var(--grid-gap);
-  /* margin: 24px 0; */
   justify-content: center;
   transition: grid-template-columns 0.3s ease, gap 0.3s ease;
 }
-.product-grid-title {
+.section-title {
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   font-weight: 600;

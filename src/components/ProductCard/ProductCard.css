@@ -15,7 +15,6 @@
   width: 219.6px;
   height: 237px;
   object-fit: contain;
-  /* margin: 0 auto 30px; */
 }
 
 .product-row {
@@ -85,4 +84,30 @@
 }
 .buy-button:hover {
   color: #FFA542;
+}
+
+
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quantity-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity {
+  min-width: 20px;
+  text-align: center;
 }

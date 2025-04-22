@@ -2,37 +2,30 @@ import React from 'react';
 import { RiHeartLine, RiShoppingCart2Line } from "react-icons/ri";
 import './Header.css';
 
-const Header = () => {
+const Header = ({ cartItemsCount, onCartClick, onLogoClick }) => {
   const handleFavoriteClick = () => {
     console.log('Избранное clicked');
-    // Здесь можно добавить логику для избранного
-  };
-
-  const handleCartClick = () => {
-    console.log('Корзина clicked');
-    // Здесь можно добавить логику для корзины
   };
 
   return (
     <header className="header">
       <div className="header-content">
-        <h1 className="header-logo">QPICK</h1>
+        <h1 className="header-logo" onClick={onLogoClick}>QPICK</h1>
         <div className="header-icons">
           <button 
             className="icon-button" 
             onClick={handleFavoriteClick}
             aria-label="Избранное"
           >
-            <RiHeartLine  className="icon" />
-            {/* Можно добавить счетчик: <span className="badge">3</span> */}
+            <RiHeartLine className="icon" />
           </button>
           <button 
             className="icon-button" 
-            onClick={handleCartClick}
+            onClick={onCartClick}
             aria-label="Корзина"
           >
             <RiShoppingCart2Line className="icon" />
-            {/* Можно добавить счетчик: <span className="badge">5</span> */}
+            {cartItemsCount > 0 && <span className="badge">{cartItemsCount}</span>}
           </button>
         </div>
       </div>
